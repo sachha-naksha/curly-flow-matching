@@ -11,7 +11,6 @@ import ot as pot
 import torchdyn
 from torchdyn.core import NeuralODE
 from torchcfm.utils import *
-from src.models.components.mmd_distr import *
 from torchcfm.optimal_transport import OTPlanSampler
 from models.components.cfd_utils import *
 from torch.utils.data import DataLoader

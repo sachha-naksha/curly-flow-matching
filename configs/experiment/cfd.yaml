@@ -24,7 +24,7 @@ model:
 
 # Data module-specific configs for this experiment
 data:
-  data_dir: /slurm-storage/vigmor/InteractingFlows/data/CFD
+  data_dir: /slurm-storage/katpet/curly-flow-matching/data/CFD
   batch_size: 256
   desired_num_particles: 2000
   seed: 42

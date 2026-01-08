@@ -12,7 +12,6 @@ import matplotlib.colors as mcolors
 import pandas as pd
 import scanpy as sc
 import scvelo as scv
-from models.components.curlyfm.kernel_factory import *
 from functools import partial
 from torch.func import vmap
 
