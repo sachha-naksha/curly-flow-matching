@@ -19,3 +19,5 @@ check_val_every_n_epoch: 50
 # set True to to ensure deterministic results
 # makes training slower but gives more reproducibility than just setting seeds
 deterministic: False
+
+num_sanity_val_steps: 0
