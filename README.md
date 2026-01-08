@@ -41,7 +41,7 @@ The preprocessed data can be downloaded here:
 
 The raw data can be downloaded here: [Raw cell cycle data](https://zenodo.org/records/4719436) and [Raw mouse erythroid data](https://scvelo.readthedocs.io/en/stable/scvelo.datasets.gastrulation_erythroid.html). For usability, we provide the notebook [cell_data.ipynb](notebooks/cell_data.ipynb) which contain code for the data preprocessing, and code for data visualizations.
 
-When adding the downloaded data to the repo make sure to create a \texttt{data/} folder to save the downloaded datasets. For CFD the data should be saved under \texttt{data/CFD/2DTGV}. 💡 Remember to also change the data directory names in dataloader configs and notebooks. 
+When adding the downloaded data to the repo make sure to create a `data/` folder to save the downloaded datasets. For CFD the data should be saved under `data/CFD/2DTGV`. 💡 Remember to also change the data directory names in dataloader configs and notebooks. 
 
 <div align="left">
   
