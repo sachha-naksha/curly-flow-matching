@@ -86,7 +86,7 @@ class CurlyCFDModule(LightningModule):
 
         if self.current_epoch < self.trainer.max_epochs // 2: 
             self.geo_optimizer.zero_grad()
-            t_orig, t, xt, ut, mu_t_dot, eps = get_batch_geo(x0s, x1s, v0s, v1s, timesteps)
+            t_orig, t, xt, ut, mu_t_dot, eps = get_batch_geo(x0s, x1s, v0s, v1s, timesteps, self.geo_model, self.sigma, self.k)
             cosine_loss = 1 - torch.nn.functional.cosine_similarity(ut, mu_t_dot).mean()
             loss = torch.mean((self.alpha*ut - mu_t_dot) ** 2) + cosine_loss
             
@@ -94,7 +94,7 @@ class CurlyCFDModule(LightningModule):
             self.geo_optimizer.step()
         else:
             self.sf2m_optimizer.zero_grad()
-            t_orig, t, xt, mu_t_dot, _, _, eps = get_batch_vel(x0s, x1s, v0s, v1s, timesteps)
+            t_orig, t, xt, mu_t_dot, _, _, eps = get_batch_vel(x0s, x1s, v0s, v1s, timesteps, self.geo_model, self.k, self.sigma, self.num_times)
             vt = self.vel_model(torch.cat([xt.detach(), t[:, None]], dim=-1))
             st = self.score_model(torch.cat([xt, t[:, None]], dim=-1))
             

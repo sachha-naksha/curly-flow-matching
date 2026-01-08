@@ -133,7 +133,7 @@ class CurlyWrapperWithMetricsCFD(torch.nn.Module):
 
         return torch.cat([x_dot, self.cos_dist_all.unsqueeze(1), cos_dist.unsqueeze(1), L2_squared.unsqueeze(1)], dim=1)
 
-def get_batch_geo(self, x0s, x1s, v0s, v1s, timesteps):
+def get_batch_geo(x0s, x1s, v0s, v1s, timesteps, geo_model, sigma, k):
         t_orig_list = []
         ts = []
         xts = []
@@ -151,17 +151,17 @@ def get_batch_geo(self, x0s, x1s, v0s, v1s, timesteps):
             t_o = t
             t = t * (t_start_next - t_start) + t_start
             
-            xt, mu_t_dot, eps = get_xt_xt_dot(t, t_start, t_start_next, x0, x1, self.geo_model, sigma=self.sigma)
+            xt, mu_t_dot, eps = get_xt_xt_dot(t, t_start, t_start_next, x0, x1, geo_model, sigma=sigma)
             ut = get_ut_knn_gaussian(
                 xt,
                 x0,
                 x1,
                 v0,
                 v1,
-                k=self.k,
+                k=k,
             )
             
-            xt = xt + torch.sqrt(t* (1-t)).unsqueeze(1) * self.sigma * eps
+            xt = xt + torch.sqrt(t* (1-t)).unsqueeze(1) * sigma * eps
             
             t_orig_list.append(t_o)
             ts.append(t)
@@ -180,7 +180,7 @@ def get_batch_geo(self, x0s, x1s, v0s, v1s, timesteps):
 
         return t_orig, t, xt, ut, mu_t_dot, eps
 
-def get_batch_vel(self, x0s, x1s, v0s, v1s, timesteps):
+def get_batch_vel(x0s, x1s, v0s, v1s, timesteps, geo_model, k, sigma, num_times):
     t_orig = []
     ts = []
     xts = []
@@ -197,8 +197,8 @@ def get_batch_vel(self, x0s, x1s, v0s, v1s, timesteps):
         t = torch.rand(x0.shape[0]).type_as(x0)
         t_o = t
         t = t * (t_start_next - t_start) + t_start
-        x0, x1, _ = coupling_cfd(t_start, t_start_next, x0, x1, x0, x1, v0, v1, self.geo_model, self.k, sigma = self.sigma, num_times=self.num_times)       
-        xt, mu_t_dot, eps = get_xt_xt_dot(t, t_start, t_start_next, x0, x1, self.geo_model, sigma=self.sigma)
+        x0, x1, _ = coupling_cfd(t_start, t_start_next, x0, x1, x0, x1, v0, v1, geo_model, k, sigma = sigma, num_times=num_times)       
+        xt, mu_t_dot, eps = get_xt_xt_dot(t, t_start, t_start_next, x0, x1, geo_model, sigma=sigma)
         t_orig.append(t_o)
         ts.append(t)
         xts.append(xt)
