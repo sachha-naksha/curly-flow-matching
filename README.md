@@ -80,6 +80,7 @@ conda activate curlyfm
 
 # install requirements
 pip install -r requirements.txt
+pip install -e.
 ```
 
 ### Train cell cycles and CFD

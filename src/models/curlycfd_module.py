@@ -6,11 +6,9 @@ from torchmetrics import MaxMetric, MeanMetric
 from torchmetrics.classification.accuracy import Accuracy
 
 import torchcfm
-from torchcfm.utils import plot_trajectories
 import ot as pot
 import torchdyn
 from torchdyn.core import NeuralODE
-from torchcfm.utils import *
 from torchcfm.optimal_transport import OTPlanSampler
 from models.components.cfd_utils import *
 from torch.utils.data import DataLoader

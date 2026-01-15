@@ -1,18 +1,6 @@
 import torch
-import matplotlib.pyplot as plt
-import scipy 
-import os
+import scipy
 import torch.nn.functional as F
-import numpy as np
-import seaborn as sns
-from scipy.stats import gaussian_kde
-import ot as pot
-import anndata as ad
-import matplotlib.colors as mcolors
-import pandas as pd
-import scanpy as sc
-import scvelo as scv
-from functools import partial
 from torch.func import vmap
 
 def compute_gamma(t, t_min, t_max):
