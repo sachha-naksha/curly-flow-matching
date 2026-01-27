@@ -34,9 +34,9 @@ Curly-FM is a simple two-stage framework. First, we learn neural bridges between
 This repo contains all elements needed to reproduce our results. See [this http link](https://arxiv.org/abs/2510.26645) for the paper.
 
 The preprocessed data can be downloaded here:
-* [Preprocessed cell cycle data](https://huggingface.co/datasets/kpetrovicc/curly-fm-cell-cycles/resolve/main/fibroblast_velocity.h5ad) which contains gene expressions and RNA velocities
-* [Preprocessed oceans data](https://huggingface.co/datasets/kpetrovicc/curly-fm-oceans/resolve/main/oceans.npz) which contains particle positions and velocities
-* [Preprocessed mouse erythroid data](https://huggingface.co/datasets/kpetrovicc/curly-fm-mouse-erythroid/resolve/main/cells.h5ad) which contains gene expressions and RNA velocities across multiple marginals
+* [Pre-processed cell cycle data](https://huggingface.co/datasets/kpetrovicc/curly-fm-cell-cycles/resolve/main/fibroblast_velocity.h5ad) which contains gene expressions and RNA velocities
+* [Pre-processed oceans data](https://huggingface.co/datasets/kpetrovicc/curly-fm-oceans/resolve/main/oceans.npz) which contains particle positions and velocities
+* [Pre-processed mouse erythroid data](https://huggingface.co/datasets/kpetrovicc/curly-fm-mouse-erythroid/resolve/main/cells.h5ad) which contains gene expressions and RNA velocities across multiple marginals
 * [Pre-processed CFD data](https://huggingface.co/datasets/kpetrovicc/curly-fm-cfd/resolve/main/2DTGV.zip)
 
 The raw data can be downloaded here: [Raw cell cycle data](https://zenodo.org/records/4719436) and [Raw mouse erythroid data](https://scvelo.readthedocs.io/en/stable/scvelo.datasets.gastrulation_erythroid.html). For usability, we provide the notebook [cell_data.ipynb](notebooks/cell_data.ipynb) which contain code for the data preprocessing, and code for data visualizations.
@@ -60,6 +60,7 @@ K. Petrović, L. Atanackovic, V. Moro, K. Kapuśniak, İ. Ceylan, M. Bronstein, 
   url={https://openreview.net/forum?id=7cqKVDgFZQ}
 }
 ```
+
 
 
 ## How to run
